@@ -12,6 +12,7 @@ skills:
   - CAD
   - Team Engineering
 main-image: /robot-on-track.png
+featured: true
 ---
 
 ## Overview

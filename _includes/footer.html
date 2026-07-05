@@ -1,19 +1,63 @@
-<footer>
-    <div class="footer-content">
-        <div class="links">
-            <a href="/">
-                <span>Home</span>
-            </a>
-            <a href="/projects/">
-                <span>Projects</span>
-            </a>
-            <a href={{site.resume-url}} target="_blank" rel="noopener noreferrer">
-                <span>Resume</span>
-            </a>
+<footer class="site-footer">
+    <div class="footer-inner container">
+        <div class="footer-left">
+            <p class="mono">{{ site.name }} &middot; {{ 'now' | date: "%Y" }} &middot; Built with Jekyll</p>
+            <p class="license">Free-To-Engineer template &copy; <a href="https://lowinertia.com">lowinertia.com</a> (CC BY 4.0)</p>
         </div>
-    </div>
-    <div class="license">
-        <span>For any question or suggestion for the portfolio template or projects, reach out <a class="help" href="mailto:admin@lowinertia.com"> Here</a> </span>
-        <p>Free-To-Engineer portfolio template © 2025 by lowinertia.com is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a></p>
+
+        <div class="footer-right">
+            {% if site.external-links %}
+            <span class="footer-socials">
+                {% assign platforms = "linkedin,x-twitter,github,stackoverflow,discord,medium,threads,bluesky,instagram,youtube" | split: "," %}
+                {% for platform in platforms %}
+                    {% if site.external-links[platform] %}
+                        {% case platform %}
+                        {% when 'linkedin' %}
+                        <a href="https://www.linkedin.com/in/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        {% when 'github' %}
+                        <a href="https://github.com/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        {% when 'stackoverflow' %}
+                        <a href="https://stackoverflow.com/users/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="Stack Overflow">
+                            <i class="fa-brands fa-stack-overflow"></i>
+                        </a>
+                        {% when 'discord' %}
+                        <a href="https://discord.com/users/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                            <i class="fa-brands fa-discord"></i>
+                        </a>
+                        {% when 'medium' %}
+                        <a href="https://medium.com/@{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="Medium">
+                            <i class="fa-brands fa-medium"></i>
+                        </a>
+                        {% when 'x-twitter' %}
+                        <a href="https://x.com/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        {% when 'threads' %}
+                        <a href="https://threads.net/@{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="Threads">
+                            <i class="fa-brands fa-threads"></i>
+                        </a>
+                        {% when 'bluesky' %}
+                        <a href="https://bsky.app/profile/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
+                            <i class="fa-solid fa-cloud"></i>
+                        </a>
+                        {% when 'instagram' %}
+                        <a href="https://instagram.com/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        {% when 'youtube' %}
+                        <a href="https://youtube.com/@{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        {% endcase %}
+                    {% endif %}
+                {% endfor %}
+            </span>
+            {% endif %}
+            <a class="back-to-top" href="#top">TOP &uarr;</a>
+        </div>
     </div>
 </footer>

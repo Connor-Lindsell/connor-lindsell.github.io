@@ -1,23 +1,12 @@
-<section id="skills" class="skills-section">
-    <h2>Skills</h2>
-        
-    <ul class="skill-categories">
-        {% for skill in site.skills %}
-          <li>
-            <div class="skills-card">
-              <span class="category-label">{{ skill.category}}</span>
-            
-              <ul class="skills-list">
-                {% for skill in skill.tools %}
-                  <li class="skill">
-                    {{ skill }}
-                  </li>
+<div class="skills">
+    {% for skill in site.skills %}
+        <div class="skills__row reveal">
+            <span class="skills__category">{{ skill.category }}</span>
+            <div class="skills__items">
+                {% for tool in skill.tools %}
+                    <span class="chip">{{ tool }}</span>
                 {% endfor %}
-                </ul>
             </div>
-            
-          </li> 
-        {% endfor %}
-      </ul>
-
-</section>
+        </div>
+    {% endfor %}
+</div>

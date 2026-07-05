@@ -10,7 +10,7 @@ skills:
   - Belt Drives
   - Robotic Actuation
   - Design for 3D Printing
-main-image: /inverse-belt-differential-actuator.JPG
+main-image: /inverse-belt-differential-actuator.jpg
 ---
 
 ## Overview
@@ -35,4 +35,4 @@ Although the actuator has not yet been tested, the design process demonstrates t
 
 The next stage is to 3D print and assemble the actuator to validate tolerances, belt tensioning, load handling, motion precision, backlash, and efficiency. Test results will guide further redesign of pulley sizing, belt routing, and structural reinforcement.
 
-{% include image-gallery.html images="inverse-belt-differential-actuator.JPG, reach-wrist-overview.jpeg, belt-differential-assembly.jpg" height="350" %}
+{% include image-gallery.html images="inverse-belt-differential-actuator.jpg, reach-wrist-overview.jpeg, belt-differential-assembly.jpg" height="350" %}
