@@ -15,10 +15,12 @@ title: Connor Lindsell's Portfolio # This is what shows up in the tab of the bro
 name: Connor Lindsell
 headline: Mechanical and Mechatronic Undergraduate Engineer at Capral Aluminium
 description: >- # dont remove this line. this will ignore all new lines until the next section
-  Engineering portfolio covering robotics, mechatronics, mechanical design,
-  electronics teardown, prototyping, and applied control work. This site is a
-  working collection of project case studies, with each project page capturing
-  the problem, my contribution, the technical approach, and the final outcome.
+  Welcome to my Engineering portfolio!! 
+  You will find work covering robotics, mechatronics, mechanical design, prototyping, 
+  and applied control work amongst a vary range of applications in industry, 
+  university and also personal projects. This site is a working collection of 
+  project case studies, with each project page capturing the problem, my contribution, 
+  the technical approach, and the final outcome.
 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
 profile_image: ./assets/images/profile-image/Image.jpg
@@ -34,7 +36,7 @@ resume-url: https://drive.google.com/file/d/13Z3duVzh-gguPU5r03oJVEE6rV9rd3DS/vi
 external-links:    # input only your own url slug. The icons with missing entries will not appear.
   linkedin: test    # https://www.linkedin.com/in/{your url slug} 
   github: Connor-Lindsell    # https://github.com/{your url slug} 
-  stackoverflow: test      # https://stackoverflow.com/users/{your url slug}
+  stackoverflow:      # https://stackoverflow.com/users/{your url slug}
   medium:            # https://medium.com/@{your url slug} 
   x-twitter:   # https://x.com/{your url slug} 
   threads:            # https://threads.net/@{your url slug} 
