@@ -11,7 +11,7 @@ skills:
   - Reinforcement Learning
   - Motion Planning
   - Pick and Place
-main-image: /tensor_board.png
+main-image: /robot-pick-place-still.jpg
 ---
 
 ## Overview
