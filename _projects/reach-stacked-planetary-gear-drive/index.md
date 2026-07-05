@@ -11,6 +11,7 @@ skills:
   - Robotic Actuation
   - Mechanical Optimisation
 main-image: /assembled-gear-drive.jpeg
+featured: true
 ---
 
 ## Overview

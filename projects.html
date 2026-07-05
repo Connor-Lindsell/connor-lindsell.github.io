@@ -1,8 +1,19 @@
 ---
 
 layout: wrapper
+title: Projects
 permalink: /projects/
 
 ---
 
-{% include projects.html%}
+<main class="container">
+    <section class="section">
+        <div class="section-heading">
+            <span class="section-heading__kicker mono">INDEX / ALL PROJECTS</span>
+            <h1 class="section-heading__title">Projects</h1>
+            <div class="dim-rule"><span>{{ site.projects | size }} ENTRIES</span></div>
+        </div>
+
+        {% include projects.html %}
+    </section>
+</main>

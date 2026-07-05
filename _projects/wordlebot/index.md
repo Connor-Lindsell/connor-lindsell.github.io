@@ -12,6 +12,7 @@ skills:
   - Motion Planning
   - Pick and Place
 main-image: /robot-pick-place-still.jpg
+featured: true
 ---
 
 ## Overview

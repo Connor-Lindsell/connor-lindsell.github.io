@@ -1,95 +1,67 @@
+<section class="hero" style="--hero-image:url('/assets/images/hero/hero-space.jpg')">
+    <div class="hero__inner">
+        <span class="hero__kicker mono">Mechanical &amp; Mechatronic Engineering</span>
+        <h1 class="hero__name">{{ site.name }}</h1>
+        <p class="hero__headline">{{ site.headline }}</p>
+        <p class="hero__desc">{{ site.description }}</p>
 
-<!-- SECTION 1: Hero -->
-<section class="hero-section">
-    <div class="group">
-        <div class="text">
-            <h2>
-                I'm {{ site.name | split: ' ' | first }} 
-                {% if site.external-links %}
-                <span class="external-links">
-                    {% assign platforms = "linkedin,x-twitter,github,stackoverflow,discord,medium,threads,bluesky,instagram,youtube" | split: "," %}
-                    {% for platform in platforms %}
-                        {% if site.external-links[platform] %}
-                            {% case platform %}
-                            {% when 'linkedin' %}
-                            <a href="https://www.linkedin.com/in/connor-lindsell-b663632b3/" target="_blank">
-                                <i class="fa-brands fa-linkedin"></i>
-                            </a>
-                        
-                            {% when 'github' %}
-                                <a href="https://github.com/Connor-Lindsell" target="_blank">
-                                    <i class="fa-brands fa-github"></i>
-                                </a>
-                            
-                            {% when 'stackoverflow' %}
-                                <a href="https://stackoverflow.com/users/{{ site.external-links[platform] }}/" target="_blank">
-                                    <i class="fa-brands fa-stack-overflow"></i>
-                                </a>
-                            
-                            {% when 'discord' %}
-                                <a href="https://discord.com/users/{{ site.external-links[platform] }}/" target="_blank">
-                                    <i class="fa-brands fa-discord"></i>
-                                </a>
-                            
-                            {% when 'medium' %}
-                                <a href="https://medium.com/@{{ site.external-links[platform] }}/" target="_blank">
-                                    <i class="fa-brands fa-medium"></i>
-                                </a>
-                            
-                            {% when 'x-twitter' %}
-                                <a href="https://x.com/{{ site.external-links[platform] }}/" target="_blank">
-                                    <i class="fa-brands fa-x-twitter"></i>
-                                </a>
-                            
-                            {% when 'threads' %}
-                                <a href="https://threads.net/@{{ site.external-links[platform] }}/" target="_blank">
-                                    <i class="fa-brands fa-threads"></i>
-                                </a>
-                            
-                            {% when 'bluesky' %}
-                                <a href="https://bsky.app/profile/{{ site.external-links[platform] }}/" target="_blank">
-                                    <i class="fa-solid fa-cloud"></i>
-                                </a>
-                            
-                            {% when 'instagram' %}
-                                <a href="https://instagram.com/{{ site.external-links[platform] }}/" target="_blank">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
-                            
-                            {% when 'youtube' %}
-                                <a href="https://youtube.com/@{{ site.external-links[platform] }}/" target="_blank">
-                                    <i class="fa-brands fa-youtube"></i>
-                                </a>
+        <div class="hero__actions">
+            <a href="/projects/" class="btn btn--solid">View Projects</a>
+            <a href="#contact" class="btn">Contact</a>
+        </div>
 
-                            {% endcase %}
-                        {% endif %}
-                    {% endfor %}
-                </span>
+        {% if site.external-links %}
+        <div class="hero__socials">
+            {% assign platforms = "linkedin,x-twitter,github,stackoverflow,discord,medium,threads,bluesky,instagram,youtube" | split: "," %}
+            {% for platform in platforms %}
+                {% if site.external-links[platform] %}
+                    {% case platform %}
+                    {% when 'linkedin' %}
+                    <a href="https://www.linkedin.com/in/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    {% when 'github' %}
+                    <a href="https://github.com/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    {% when 'stackoverflow' %}
+                    <a href="https://stackoverflow.com/users/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="Stack Overflow">
+                        <i class="fa-brands fa-stack-overflow"></i>
+                    </a>
+                    {% when 'discord' %}
+                    <a href="https://discord.com/users/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                        <i class="fa-brands fa-discord"></i>
+                    </a>
+                    {% when 'medium' %}
+                    <a href="https://medium.com/@{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="Medium">
+                        <i class="fa-brands fa-medium"></i>
+                    </a>
+                    {% when 'x-twitter' %}
+                    <a href="https://x.com/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    {% when 'threads' %}
+                    <a href="https://threads.net/@{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="Threads">
+                        <i class="fa-brands fa-threads"></i>
+                    </a>
+                    {% when 'bluesky' %}
+                    <a href="https://bsky.app/profile/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
+                        <i class="fa-solid fa-cloud"></i>
+                    </a>
+                    {% when 'instagram' %}
+                    <a href="https://instagram.com/{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    {% when 'youtube' %}
+                    <a href="https://youtube.com/@{{ site.external-links[platform] }}/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    {% endcase %}
                 {% endif %}
-            </h2>
-            
-            <h3> {{site.headline}} </h3>
-            <p> {{site.description}}</p>
-            <div class="links">
-                <a href="#projects">
-                    <i class="fa-solid fa-pen"></i>
-                    <span>Projects</span>
-                </a>
-                <a href="#skills">
-                    <i class="fa-solid fa-hammer"></i>
-                    <span>Skills</span>
-                </a>
-                <a href="#contact">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>Contact Me</span>
-                </a>
-            </div>
-            
+            {% endfor %}
         </div>
-        <div class="headshot">
-            <img src= {{site.profile_image}} alt="john doe headshot">       
-        </div>
+        {% endif %}
     </div>
-    
-</section>
 
+    <span class="scroll-cue" aria-hidden="true"></span>
+</section>

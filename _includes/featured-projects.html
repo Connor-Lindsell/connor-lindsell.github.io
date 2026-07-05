@@ -1,36 +1,33 @@
-<!-- Project grid -->
+{% assign featured = site.projects | where: "featured", true | sort: "order" %}
+{% if featured.size == 0 %}{% assign featured = site.projects | sort: "order" | slice: 0, 3 %}{% endif %}
+
 <div class="project-grid">
-    {% assign sorted_projects = site.projects | sort: "order" %}
-    {% for item in sorted_projects %}
+    {% for item in featured %}
         {% unless item.published == false %}
             {% assign folder_path = item.path | split: "/" | slice: 0, 2 | join: "/" %}
             {% assign image_path = "/" | append: folder_path | append: item['main-image'] %}
-            {% assign padded_index = forloop.index | prepend: "0" | slice: -2, 2 %}
             <a href="{{ item.url | relative_url }}" class="project-card reveal" aria-label="Read more about {{ item.title }}">
                 <div class="project-card__media">
-                    <img
-                        src="{{ image_path | relative_url }}"
-                        alt="{{ item.title }}"
-                        loading="lazy"
-                        onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');"
-                    >
+                    <img src="{{ image_path | relative_url }}" alt="{{ item.title }}" loading="lazy">
                 </div>
                 <div class="project-card__body">
-                    <span class="project-card__index mono">{{ padded_index }}</span>
+                    <span class="project-card__index">{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
                     <h3 class="project-card__title">{{ item.title }}</h3>
                     <p class="project-card__desc">{{ item.description }}</p>
                     <div class="project-card__chips">
                         {% for skill in item.skills limit: 4 %}
                             <span class="chip">{{ skill }}</span>
                         {% endfor %}
-                        {% assign skills_count = item.skills | size %}
-                        {% if skills_count > 4 %}
-                            {% assign remaining = skills_count | minus: 4 %}
-                            <span class="chip">+{{ remaining }}</span>
+                        {% if item.skills.size > 4 %}
+                            <span class="chip">+{{ item.skills.size | minus: 4 }}</span>
                         {% endif %}
                     </div>
                 </div>
             </a>
         {% endunless %}
     {% endfor %}
+</div>
+
+<div class="section-more">
+    <a href="/projects/">ALL PROJECTS &rarr;</a>
 </div>

@@ -2,34 +2,93 @@
 layout: wrapper
 ---
 
-<div class="post-view">
-    <div class="summary">
-        
-       
-        {% assign folder_path = page.path | split: "/" | slice: 0, 2 | join: "/" %}
-        {% assign image_path = "/" | append: folder_path | append: page['main-image'] %}       
-        <img src="{{ image_path | relative_url }}" alt="{{ page.title }} image">
-        
-        <div class="title-header">
-            <h1>{{page.title}}</h1>
-        </div>
-        
-        <div class="project-description">
-            <h2>Project Overview</h2>
+{% assign sorted_projects = site.projects | sort: "order" %}
+{% assign project_count = sorted_projects | size %}
+{% assign current_index = -1 %}
+{% for item in sorted_projects %}
+    {% if item.url == page.url %}
+        {% assign current_index = forloop.index0 %}
+    {% endif %}
+{% endfor %}
+
+<main class="container section">
+    <div class="breadcrumb mono">
+        <a href="/projects/">PROJECTS</a> <span class="sep">/</span> <span>{{ page.title | truncate: 42 | upcase }}</span>
+    </div>
+
+    <h1>{{ page.title }}</h1>
+    <div class="dim-rule"></div>
+
+    <div class="datasheet">
+        <div class="datasheet__row">
+            <span class="datasheet__label">Overview</span>
             <p>{{ page.description }}</p>
         </div>
-        <div class="skills-card">
-            <h2>Skills Used</h2> 
-            <div class="skills-list">
+        {% if page.skills %}
+        <div class="datasheet__row">
+            <span class="datasheet__label">Skills</span>
+            <div class="project-card__chips">
                 {% for skill in page.skills %}
-                <span class="skill">{{ skill }}</span>    
+                    <span class="chip">{{ skill }}</span>
                 {% endfor %}
             </div>
         </div>
+        {% endif %}
+        {% if page.role %}
+        <div class="datasheet__row">
+            <span class="datasheet__label">Role</span>
+            <p>{{ page.role }}</p>
+        </div>
+        {% endif %}
+        {% if page.year %}
+        <div class="datasheet__row">
+            <span class="datasheet__label">Year</span>
+            <p>{{ page.year }}</p>
+        </div>
+        {% endif %}
     </div>
-      
-    <div class="content">
-        {{content}}
-    </div>
-</div>
 
+    {% if page['main-image'] %}
+        {% assign folder_path = page.path | split: "/" | slice: 0, 2 | join: "/" %}
+        {% assign image_path = "/" | append: folder_path | append: page['main-image'] %}
+        <div class="model-frame">
+            <img
+                src="{{ image_path | relative_url }}"
+                alt="{{ page.title }} image"
+                onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');"
+            >
+        </div>
+    {% endif %}
+
+    {% if page.model %}
+        {% include model-viewer.html src=page.model caption=page.title %}
+    {% endif %}
+
+    <article class="prose">
+        {{ content }}
+    </article>
+
+    <div class="project-nav">
+        {% if current_index > 0 %}
+            {% assign prev_index = current_index | minus: 1 %}
+            {% assign prev_project = sorted_projects[prev_index] %}
+            <a class="project-nav__prev" href="{{ prev_project.url | relative_url }}">
+                <span class="project-nav__label mono">&larr; PREV</span>
+                <span class="project-nav__title">{{ prev_project.title }}</span>
+            </a>
+        {% else %}
+            <div></div>
+        {% endif %}
+
+        {% assign next_index = current_index | plus: 1 %}
+        {% if current_index > -1 and next_index < project_count %}
+            {% assign next_project = sorted_projects[next_index] %}
+            <a class="project-nav__next" href="{{ next_project.url | relative_url }}">
+                <span class="project-nav__label mono">NEXT &rarr;</span>
+                <span class="project-nav__title">{{ next_project.title }}</span>
+            </a>
+        {% else %}
+            <div></div>
+        {% endif %}
+    </div>
+</main>

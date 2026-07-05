@@ -1,20 +1,27 @@
-<!-- SECTION 4: Contact-->
-<section id="contact" class= "contact-section">
-    <h2>Contact</h2>
-
-    <div class="group">
-      
-        <form action="https://formspree.io/f/{{site.formspree-key}}" method="POST">
-            <label for="name">Name</label>
-            <input type="text" id="name">
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email">
-
-            <label for="message">Message</label>
-            <textarea id="message" cols = "30" rows="10" name="message"></textarea>
-
-            <button type="submit">Send Message</button>
-        </form>
+<div class="contact-split">
+    <div class="contact-blurb reveal">
+        <p>Interested in working together, or just want to talk engineering? Reach out &mdash; I read every message and reply as soon as I can.</p>
+        {% if site.external-links.linkedin %}
+        <p><a href="https://www.linkedin.com/in/{{ site.external-links.linkedin }}/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> Connect on LinkedIn</a></p>
+        {% endif %}
     </div>
-  </section>
+
+    <form class="reveal" action="https://formspree.io/f/{{ site.formspree-key }}" method="POST">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+            <label for="message">Message</label>
+            <textarea id="message" cols="30" rows="10" name="message" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--solid">Send Message</button>
+    </form>
+</div>

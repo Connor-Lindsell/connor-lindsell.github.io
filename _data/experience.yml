@@ -1,0 +1,50 @@
+# Experience timeline data, newest first.
+# Consumed by _includes/timeline.html on about.md
+#
+# Fields:
+#   date_range : string, e.g. "2024 — Present"
+#   title      : role / qualification title
+#   org        : organisation / team / institution
+#   type       : work | team | education
+#   summary    : 1-3 sentence description
+#   bullets    : optional list of supporting points
+
+- date_range: "2024 — Present" # TODO(Connor): confirm actual start date at Capral Aluminium
+  title: "Undergraduate Engineer"
+  org: "Capral Aluminium"
+  type: work
+  summary: >-
+    Working as an undergraduate mechanical and mechatronic engineer within Capral's
+    manufacturing operations, gaining exposure to aluminium extrusion processes,
+    production engineering, and applied manufacturing problem-solving in an
+    industrial setting.
+  bullets:
+    - "Exposure to aluminium extrusion and manufacturing engineering workflows"
+    - "Cross-functional collaboration with production and technical teams"
+    - "Applying engineering fundamentals to real industrial processes" # TODO(Connor): confirm specific responsibilities/projects to list here
+
+- date_range: "2023 — Present" # TODO(Connor): confirm when you joined the REACH student team
+  title: "Mechanical Design Engineer"
+  org: "REACH Student Team"
+  type: team
+  summary: >-
+    Contributing mechanical design work to REACH, a student robotics team developing
+    a robotic arm and prosthetic-adjacent actuation technology, with a focus on
+    compact, low-backlash actuator mechanisms for robotic joints.
+  bullets:
+    - "Designed a stacked planetary gear drive robotic actuator, additively manufactured and torque-tested to ~41-50% efficiency"
+    - "Designed a compact inverse timing belt differential wrist actuator for the REACH robotic arm, modelled and adapted in SolidWorks for modular 3D-printed fabrication"
+    - "Iterative design refinement informed by prototyping and mechanical testing" # TODO(Connor): confirm official team name/scope (robotics / prosthetics) and role title
+
+- date_range: "2022 — Present" # TODO(Connor): confirm enrolment year
+  title: "Bachelor of Engineering (Honours), Mechanical and Mechatronic Engineering"
+  org: "University of Technology Sydney (UTS)" # TODO(Connor): confirm this is the correct institution
+  type: education
+  summary: >-
+    Undergraduate studies covering mechanical design and CAD, robotics and
+    intelligent systems, manufacturing and prototyping, simulation and testing,
+    and engineering practice, applied through coursework and personal/team
+    robotics projects.
+  bullets:
+    - "Coursework spanning mechanical design, robotics (ROS 2, MoveIt 2), CFD/FEA simulation, and manufacturing"
+    - "Applied learning through personal and team projects (REACH, WordleBot)" # TODO(Connor): confirm degree title wording and expected graduation date

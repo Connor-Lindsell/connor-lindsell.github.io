@@ -1,0 +1,30 @@
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+{% assign mv_src = include.src %}
+{% unless mv_src contains 'https://' or mv_src contains 'http://' or mv_src contains '/assets' %}
+  {% if mv_src and mv_src contains '/' and page.collection == 'projects' %}
+    {% assign folder_path = page.path | split: "/" | slice: 0, 2 | join: "/" %}
+    {% assign mv_src = "/" | append: folder_path | append: mv_src %}
+  {% endif %}
+{% endunless %}
+
+{% assign mv_alt = include.alt | default: "Interactive 3D model" %}
+{% assign mv_caption = include.caption | default: "3D MODEL" %}
+
+<div class="model-frame reveal">
+  <model-viewer
+    src="{{ mv_src }}"
+    alt="{{ mv_alt }}"
+    camera-controls
+    auto-rotate
+    auto-rotate-delay="3000"
+    shadow-intensity="0.6"
+    exposure="0.9"
+    interaction-prompt="when-focused"
+    {% if include.poster %}poster="{{ include.poster }}"{% endif %}
+  ></model-viewer>
+  <div class="model-frame__caption">
+    <span>{{ mv_caption }}</span>
+    <span>DRAG TO ORBIT</span>
+  </div>
+</div>
