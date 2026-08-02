@@ -28,8 +28,10 @@ profile_image: ./assets/images/profile-image/Image.jpg
 
 
 # Link your resume
-# You can place your resume in assets/resume/{resume.pdf or add external link such as pdf saved in google drive 
-resume-url: https://drive.google.com/file/d/13Z3duVzh-gguPU5r03oJVEE6rV9rd3DS/view?usp=sharing # or /assets/resume/resume.pdf
+# resume-url is where the nav "Resume" link points - the on-site viewer page.
+# resume-file is the actual PDF that page embeds. Replace the file at that path to update your resume.
+resume-url: /resume/
+resume-file: /assets/resume/Resume.pdf
 
 
 # Set up external links - this will show up as small icons next to your name.

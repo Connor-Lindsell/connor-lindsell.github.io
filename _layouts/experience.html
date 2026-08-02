@@ -1,0 +1,65 @@
+---
+layout: wrapper
+---
+
+{% if page['main-image'] %}
+    {% assign folder_path = page.path | split: "/" | slice: 0, 1 | join: "/" %}
+    {% assign image_path = "/" | append: folder_path | append: page['main-image'] %}
+{% endif %}
+
+<main class="container section">
+    {% if image_path %}
+        <figure class="project-header-image reveal">
+            <div class="breadcrumb breadcrumb--overlay mono">
+                <a href="/#experience">EXPERIENCE</a> <span class="sep">/</span> <span>{{ page.title | truncate: 42 | upcase }}</span>
+            </div>
+            <img
+                src="{{ image_path | relative_url }}"
+                alt="{{ page.title }} image"
+                onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');"
+            >
+        </figure>
+    {% else %}
+        <div class="breadcrumb mono">
+            <a href="/#experience">EXPERIENCE</a> <span class="sep">/</span> <span>{{ page.title | truncate: 42 | upcase }}</span>
+        </div>
+    {% endif %}
+
+    <h1 class="project-title">{{ page.title }}</h1>
+    <div class="dim-rule"></div>
+
+    <div class="datasheet">
+        {% if page.org %}
+        <div class="datasheet__row">
+            <span class="datasheet__label">Organisation</span>
+            <p>{{ page.org }}</p>
+        </div>
+        {% endif %}
+        {% if page.role %}
+        <div class="datasheet__row">
+            <span class="datasheet__label">Role</span>
+            <p>{{ page.role }}</p>
+        </div>
+        {% endif %}
+        {% if page.date_range %}
+        <div class="datasheet__row">
+            <span class="datasheet__label">Dates</span>
+            <p>{{ page.date_range }}</p>
+        </div>
+        {% endif %}
+        {% if page.type %}
+        <div class="datasheet__row">
+            <span class="datasheet__label">Type</span>
+            <div class="project-card__chips">
+                <span class="chip">{{ page.type | upcase }}</span>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <article class="prose">
+        {{ content }}
+    </article>
+
+    <div class="section-more section-more--back"><a href="/#experience">&larr; BACK TO EXPERIENCE</a></div>
+</main>

@@ -1,0 +1,40 @@
+---
+layout: wrapper
+title: Resume
+permalink: /resume/
+description: Resume for Connor Lindsell — mechanical and mechatronic engineer working across robotics, mechanical design, and applied manufacturing.
+---
+
+<main class="container">
+  <section class="section">
+    <div class="section-heading reveal">
+      <span class="section-heading__kicker mono">CV / RESUME</span>
+      <h1 class="section-heading__title">Resume</h1>
+      <div class="dim-rule"><span>UPDATED {{ 'now' | date: "%b %Y" | upcase }}</span></div>
+    </div>
+
+    <div class="resume-viewer reveal">
+      <iframe
+        class="resume-viewer__frame"
+        src="{{ site.resume-file }}#toolbar=0&amp;navpanes=0&amp;statusbar=0"
+        title="Resume for {{ site.name }}"
+        loading="lazy"></iframe>
+    </div>
+
+    {%- comment -%}
+      An embedded PDF cannot reflow to a phone-width viewport, so it clips badly.
+      Below 48rem the viewer above is hidden and this card is shown instead.
+    {%- endcomment -%}
+    <div class="resume-viewer-small reveal">
+      <p class="mono">PDF PREVIEW / DESKTOP ONLY</p>
+      <p>A PDF can't resize to fit a phone screen. Open the resume full screen instead.</p>
+      <a class="btn btn--solid" href="{{ site.resume-file }}" target="_blank" rel="noopener">Open Resume</a>
+    </div>
+
+    <div class="resume-actions">
+      <a class="btn resume-actions__open" href="{{ site.resume-file }}" target="_blank" rel="noopener">Open in new tab <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+      <a class="btn" href="/#contact">Get in touch</a>
+      <p class="resume-actions__note mono">PREVIEW NOT LOADING? OPEN IN A NEW TAB.</p>
+    </div>
+  </section>
+</main>
