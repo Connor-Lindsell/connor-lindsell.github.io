@@ -8,11 +8,13 @@
 #   type       : work | team | education
 #   summary    : 1-3 sentence description
 #   bullets    : optional list of supporting points
+#   reflection : optional URL to a reflection page; renders a "Learn More" button
 
 - date_range: "DEC 2025 — Present"
   title: "Undergraduate Engineer"
   org: "Capral Aluminium"
   type: Industry Internship
+  reflection: /experience/capral-aluminium/
   summary: >-
     Working as an undergraduate mechanical and mechatronic engineer within Capral's
     manufacturing operations, gaining exposure to aluminium extrusion processes,

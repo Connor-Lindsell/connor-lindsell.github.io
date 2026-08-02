@@ -578,6 +578,10 @@ a:hover {
   margin-top: var(--space-4);
 }
 
+.section-more--back {
+  justify-content: flex-start;
+}
+
 .section-more a {
   font-family: var(--font-mono);
   text-transform: uppercase;
@@ -1092,6 +1096,16 @@ a:hover {
   padding-left: 1.25em;
 }
 
+.timeline__cta {
+  display: inline-block;
+  margin-top: var(--space-2);
+  padding: 8px 16px;
+}
+
+.timeline--compact .timeline__entry {
+  padding-block: var(--space-3);
+}
+
 /* --------------------------------------------------------------------------
    14. Model viewer
    -------------------------------------------------------------------------- */
@@ -1211,7 +1225,75 @@ a:hover {
 }
 
 /* --------------------------------------------------------------------------
-   18. Utilities
+   18. Resume viewer
+   -------------------------------------------------------------------------- */
+/* Full container width - the embedded viewer renders the page at its own zoom
+   and clips rather than reflowing, so don't constrain the panel. */
+.resume-viewer {
+  margin-top: var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-1);
+  overflow: hidden;
+}
+
+.resume-viewer__frame {
+  display: block;
+  width: 100%;
+  height: min(140vh, 1200px);
+  border: 0;
+  background: var(--bg-1);
+}
+
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.resume-actions__note {
+  margin: 0;
+  font-size: var(--step--1);
+}
+
+/* Phone-width fallback card, swapped in for the iframe below 48rem. */
+.resume-viewer-small {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-1);
+}
+
+.resume-viewer-small p {
+  margin: 0;
+  color: var(--text);
+}
+
+@media (max-width: 48rem) {
+  .resume-viewer {
+    display: none;
+  }
+
+  .resume-viewer-small {
+    display: flex;
+  }
+
+  /* The fallback card already offers the PDF, so drop the duplicate prompts. */
+  .resume-actions__open,
+  .resume-actions__note {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   19. Utilities
    -------------------------------------------------------------------------- */
 .mono {
   font-family: var(--font-mono);
