@@ -165,9 +165,26 @@ Tokens live at the top of `css/styles.css` (`:root`), pure CSS, no Liquid/build 
 
 ## Changing the hero image
 
-Replace `assets/images/hero/hero-space.jpg` (referenced from `_includes/hero.html` and preloaded in `_layouts/wrapper.html`). Recommended: ~1920px wide, kept well under ~400 KB for a fast LCP. A `hero-space-mobile.jpg` variant also exists in the same folder for future responsive use, though nothing in the current templates references it yet — wire it up (e.g. `<picture>`/`image-set()`) if you want an actual mobile-optimized swap.
+The home page hero is a scroll-scrubbed video. `_includes/hero.html` renders a tall `.hero` scroll driver containing a sticky `.hero__pin`; `initHeroScrub()` in `assets/js/script.js` maps scroll progress through that driver onto `video.currentTime`, so the animation only advances while the user scrolls and reverses when they scroll back up. It never plays on its own.
 
-Current hero image credit: NASA, ESA, CSA — *Cosmic Cliffs* (Carina Nebula), James Webb Space Telescope. NASA/ESA/CSA Webb imagery is public domain.
+Two assets, both in `assets/images/hero/`:
+
+- `robot-factory-hero.mp4` — the ~4.5 s animation. Encode it **all-intra and faststart**, otherwise seeking is slow (see below).
+- `robot-factory-hero.jpg` — the poster, and the hero's first paint. It should be the video's first frame. It is `preload`ed in `_layouts/wrapper.html` for LCP.
+
+Drop a `robot-factory-hero.webm` next to them and the template picks it up automatically — no markup change needed.
+
+**Encoding matters.** Scrubbing seeks; H.264 can only seek to a keyframe and then decode forward, so a normally-encoded clip (one keyframe at the start) forces a full re-decode on every backwards scrub. Encode with every frame a keyframe:
+
+```
+ffmpeg -i source.mp4 -an -c:v libx264 -crf 20 -preset slow        -g 1 -keyint_min 1 -sc_threshold 0 -pix_fmt yuv420p        -movflags +faststart robot-factory-hero.mp4
+```
+
+`-g 1` makes every frame seekable, `-an` drops the unused audio track, and `+faststart` moves the metadata to the front so duration is known without downloading the whole file. All-intra roughly doubles file size — worth it here.
+
+Scrub length is CSS, not JS: `--hero-scrub` on `.hero` in `css/styles.css` (80svh desktop, 65svh mobile) is the scroll distance the animation is spread over. Raise it for a slower scrub, lower it for a snappier one.
+
+Users with `prefers-reduced-motion: reduce` get the poster as an ordinary unpinned hero, and the video is never downloaded.
 
 ## Deployment
 
