@@ -656,30 +656,38 @@ a:hover {
 /* --------------------------------------------------------------------------
    9. Skills
    -------------------------------------------------------------------------- */
-.skills__row {
+.skills {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: var(--space-4);
-  border-top: 1px solid var(--line);
-  padding-block: var(--space-4);
 }
 
-.skills__row:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-@media (max-width: 700px) {
-  .skills__row {
-    grid-template-columns: 1fr;
-    gap: var(--space-2);
-  }
+.skills__card {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg-1);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
 }
 
 .skills__category {
   font-family: var(--font-mono);
-  color: var(--text-dim);
+  color: var(--text);
   text-transform: uppercase;
-  font-size: var(--step--1);
+  font-size: var(--step-0);
+  letter-spacing: 0.02em;
+  margin: 0;
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--accent);
+}
+
+@media (max-width: 700px) {
+  .skills {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
 }
 
 .skills__items {
@@ -689,7 +697,12 @@ a:hover {
 }
 
 .skills__items .chip {
-  white-space: nowrap;
+  /* Long tool names must wrap inside the card rather than overflow it. */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+  padding: 3px 10px;
+  max-width: 100%;
 }
 
 /* --------------------------------------------------------------------------
@@ -877,6 +890,42 @@ a:hover {
 .prose ul,
 .prose ol {
   margin-bottom: var(--space-3);
+}
+
+/* Inline figures inside prose / long-form content */
+.prose figure,
+.content-figure {
+  margin: var(--space-5) auto;
+  max-width: 100%;
+}
+
+.prose figure img,
+.content-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.prose figcaption,
+.content-figure figcaption {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text-dim);
+  text-align: left;
+}
+
+/* Portrait-orientation figure: cap width so it does not dominate the column */
+.content-figure--portrait,
+.prose figure.is-portrait {
+  max-width: 360px;
+}
+
+/* Landscape figure sitting in a full-width (non-prose) column */
+.content-figure--wide {
+  max-width: 720px;
 }
 
 .prose ul,

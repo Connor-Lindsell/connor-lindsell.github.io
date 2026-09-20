@@ -6,6 +6,8 @@ org: Capral Aluminium
 role: Undergraduate Mechanical & Mechatronic Engineer
 date_range: DEC 2025 — Present
 type: Industry Internship
+main-image: /assets/images/working-image/Capral-e1769135170790-750x505.jpeg
+main-image-position: 50% 58%
 description: Reflections on my time as an undergraduate mechanical and mechatronic engineer at Capral Aluminium.
 ---
 
@@ -28,6 +30,11 @@ Before beginning my industry experience, I expected my role as an undergraduate 
 In practice, my role requires me to consider the complete lifecycle of an engineering project. In addition to designing parts and systems, I regularly liaise with equipment operators, maintenance personnel, manufacturers, engineers, electricians, mechanical fitters, managers, and financial stakeholders. Their requirements influence how a system must operate, how it can be installed, how easily it can be maintained, and whether the project is commercially justified. This has taught me that a technically effective solution can still be unsuccessful if it is difficult to manufacture, assemble, maintain, approve, or integrate into existing operations.
 
 My design decisions therefore extend beyond variables such as strength, mass, and mechanical performance. I apply design for manufacture and design for assembly principles to reduce unnecessary complexity, control fabrication costs, improve installation, and make future maintenance more practical. This can involve simplifying components, improving drawings and assembly documentation, designing installation jigs, or ensuring that fastening and access requirements are considered before manufacturing begins.
+
+<figure class="content-figure content-figure--portrait">
+  <img src="/assets/images/working-image/Image-square.jpg" alt="Carrying out installation and inspection work on production equipment at Capral Aluminium">
+  <figcaption>On-site installation and inspection work on production equipment at Capral.</figcaption>
+</figure>
 
 The most important lessons from my experience have involved stakeholder communication, conflict resolution, and practical project delivery. Manufacturing errors or disagreements over technical requirements can create significant cost and schedule consequences, particularly on large industrial projects. I have learned to address these situations through clear documentation, evidence-based discussion, and a focus on achieving a workable resolution rather than assigning blame. These skills are important because engineering projects depend on cooperation between people with different technical backgrounds, responsibilities, and priorities.
 

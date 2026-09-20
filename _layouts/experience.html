@@ -3,8 +3,12 @@ layout: wrapper
 ---
 
 {% if page['main-image'] %}
-    {% assign folder_path = page.path | split: "/" | slice: 0, 1 | join: "/" %}
-    {% assign image_path = "/" | append: folder_path | append: page['main-image'] %}
+    {% if page['main-image'] contains "/assets/" %}
+        {% assign image_path = page['main-image'] %}
+    {% else %}
+        {% assign folder_path = page.path | split: "/" | slice: 0, 1 | join: "/" %}
+        {% assign image_path = "/" | append: folder_path | append: page['main-image'] %}
+    {% endif %}
 {% endif %}
 
 <main class="container section">
@@ -16,6 +20,7 @@ layout: wrapper
             <img
                 src="{{ image_path | relative_url }}"
                 alt="{{ page.title }} image"
+                {% if page['main-image-position'] %}style="object-position: {{ page['main-image-position'] }};"{% endif %}
                 onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');"
             >
         </figure>
