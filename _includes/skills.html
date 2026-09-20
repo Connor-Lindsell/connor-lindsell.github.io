@@ -1,7 +1,7 @@
 <div class="skills">
     {% for skill in site.skills %}
-        <div class="skills__row reveal">
-            <span class="skills__category">{{ skill.category }}</span>
+        <div class="skills__card reveal">
+            <h3 class="skills__category">{{ skill.category }}</h3>
             <div class="skills__items">
                 {% for tool in skill.tools %}
                     <span class="chip">{{ tool }}</span>

@@ -7,27 +7,21 @@ hero: true
 
 <main class="container">
     <section class="section" id="about">
-        {% include section-heading.html number="01" title="An Introduction To Me " %}
+        {% include section-heading.html number="01" title="An Introduction To Me" %}
         <div class="home-about reveal">
             <div class="home-about__copy">
                 <h3 class="home-about__title">Undergraduate Mech/Mech Engineer</h3>
                 <p>
-                    I'm {{ site.name }}, a mechanical and mechatronic engineer working across robotics,
-                    mechanical design, and applied manufacturing. My work sits where ideas become
-                    hardware: from concept sketches through CAD, simulation, prototyping, and testing.
+                    I'm {{ site.name }} &mdash; a mechanical and mechatronic engineering undergraduate
+                    designing hardware for a working aluminium extrusion plant at Capral, and building
+                    robotics the rest of the week.
                 </p>
                 <p>
-                    The projects here span robotics, mechatronics, mechanical design, prototyping,
-                    and applied control, drawn from industry, university, and personal work.
-                </p>
-                <p>
-                    I care about designs that hold up once they leave the CAD environment:
-                    mechanisms that survive real tolerances, parts that assemble cleanly, and
-                    systems validated with evidence rather than assumptions.
+                    The projects below are case studies: the problem, my contribution, the technical
+                    approach, and what the result actually did.
                 </p>
                 <div class="home-about__cta">
-                    <p>If you want to learn more about me and my experience, click below.</p>
-                    <a class="btn btn--solid" href="/about/">About Me</a>
+                    <a class="btn btn--solid" href="/about/">More about me</a>
                 </div>
             </div>
             <div class="home-about__media" style="--profile-size: 220px; --profile-offset-y: 0px; --profile-x: 50%; --profile-y: 30%;">
@@ -41,15 +35,15 @@ hero: true
         {% include featured-projects.html %}
     </section>
 
-    <section class="section" id="experience">
-        {% include section-heading.html number="03" title="Experience" %}
-        {% include experience-timeline.html %}
-        <div class="section-more"><a href="/about/">FULL EXPERIENCE &rarr;</a></div>
+    <section class="section" id="skills">
+        {% include section-heading.html number="03" title="Skills" %}
+        {% include skills.html %}
     </section>
 
-    <section class="section" id="skills">
-        {% include section-heading.html number="04" title="Skills" %}
-        {% include skills.html %}
+    <section class="section" id="experience">
+        {% include section-heading.html number="04" title="Experience" %}
+        {% include experience-timeline.html %}
+        <div class="section-more"><a href="/about/">FULL EXPERIENCE &rarr;</a></div>
     </section>
 
     <section class="section" id="contact">
